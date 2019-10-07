@@ -9,23 +9,17 @@
       <div class="header-box">
         <img src="./assets/images/logo.jpg" alt class="logo" />
 
-        <ul class="nav clearfix">
-          <li>
-            <router-link to="/query">查猪价</router-link>
-          </li>
-          <li class="active">
-            <router-link to="/about">行情咨询</router-link>
-          </li>
-          <li>
-            <router-link to="/about">每日猪评</router-link>
-          </li>
-          <li>
-            <router-link to="/about">生猪价格</router-link>
-          </li>
-          <li>
-            <router-link to="/about">饲料行情</router-link>
-          </li>
-        </ul>
+        <div class="nav clearfix">
+          <router-link to="/query">查猪价</router-link>
+
+          <router-link to="/about">行情咨询</router-link>
+
+          <router-link to="/a">每日猪评</router-link>
+
+          <router-link to="/b">生猪价格</router-link>
+
+          <router-link to="/c">饲料行情</router-link>
+        </div>
         <div class="input">
           <input type="text" placeholder="输入区号/地区/拼音" />
           <img src="./assets/images/search.jpg" alt />
@@ -69,20 +63,17 @@
       }
       .nav {
         margin-left: 25px;
-        li {
+
+        a {
+          display: block;
+          line-height: 63px;
+          padding: 0px 10px 0 10px;
+          font-size: 16px;
           float: left;
           margin-right: 8px;
-          a {
-            display: block;
-            line-height: 63px;
-            padding: 0px 10px 0 10px;
-            font-size: 16px;
-          }
-          &.active {
+          &.router-link-active {
             border-bottom: 2px solid #179df2;
-            a {
-              color: #179df2;
-            }
+            color: #179df2;
           }
         }
       }

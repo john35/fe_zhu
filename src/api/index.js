@@ -32,6 +32,7 @@ class AjaxRequest{
             if(Object.keys(this.queue).length===0){
                 store.commit('hideLoading');
             }
+           
             return res.data;
         });
     }

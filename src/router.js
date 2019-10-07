@@ -33,6 +33,21 @@ export default new Router({
       path:'/register',
       name:'register',
       component:()=>import('./views/Register.vue')
-    }
+    },
+    {
+      path:'/a',
+      name:'a',
+      component:()=>import('./views/Register.vue')
+    },
+    {
+      path:'/b',
+      name:'b',
+      component:()=>import('./views/Register.vue')
+    },
+    {
+      path:'/c',
+      name:'c',
+      component:()=>import('./views/Register.vue')
+    },
   ]
 })

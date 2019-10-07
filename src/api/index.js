@@ -7,7 +7,7 @@ import store from '../store'
 class AjaxRequest{
     constructor(){
         //设置请求路径
-        this.baseURL='/pigprice';
+        this.baseURL='/v1/pig';
         this.timeout=3500;//超时时间
         this.queue={};//存放每次的请求;为了避免调用多次请求混乱
     }

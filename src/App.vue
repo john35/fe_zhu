@@ -11,7 +11,7 @@
 
         <ul class="nav clearfix">
           <li>
-            <router-link to="/about">查猪价</router-link>
+            <router-link to="/query">查猪价</router-link>
           </li>
           <li class="active">
             <router-link to="/about">行情咨询</router-link>

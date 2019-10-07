@@ -25,6 +25,11 @@ export default new Router({
       component:()=>import('./views/SignIn.vue')
     },
     {
+      path:'/query',
+      name:'query',
+      component:()=>import('./views/Query.vue')
+    },
+    {
       path:'/register',
       name:'register',
       component:()=>import('./views/Register.vue')

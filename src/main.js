@@ -5,6 +5,8 @@ import store from './store'
 import './assets/css/reset.css'
 import './plugins/element.js'
 import 'element-ui/lib/theme-chalk/index.css';
+import echarts from 'echarts'
+Vue.prototype.$echarts = echarts
 Vue.config.productionTip = false
 
 new Vue({

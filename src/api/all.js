@@ -9,8 +9,23 @@ export function getData(){
     })
 }
 
-export function pigPrice(){
+// 行情
+export function pigPrice(params){
     return axios.request({
-        methods:'get'
+        methods:'get',
+        url:'price',
+        params:{
+            page:params.page,
+            page_size:10,
+        }
+    })
+}
+
+// 分时图
+export function pigFenShi(params){
+    return axios.request({
+        methods:'get',
+        url:'fenshi',
+        params
     })
 }

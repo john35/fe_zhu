@@ -1,6 +1,6 @@
 <template>
   <div class="query">
-    <!-- <div class="city-box">
+    <div class="city-box">
       <div class="l">城市：</div>
       <div class="r" @click="cityFn">
         <span
@@ -16,11 +16,12 @@
         <span
           v-for="(item,index) in types"
           :key="index"
-          :class="type_active===item?'active':''"
-        >{{item}}</span>
+          :class="type_active==item.value?'active':''"
+          :data-value="item.value"
+        >{{item.name}}</span>
       </div>
     </div>
-    <div id="query-main" :style="{width: '600px', height: '300px',margin:'40px auto'}"></div> -->
+    <div id="query-main" :style="{width: '1200px', height: '500px',margin:'40px auto'}"></div>
   </div>
 </template>
 <script>
@@ -55,8 +56,12 @@ export default {
         "青海省"
       ],
       city_active: "河南省",
-      types: ["生猪", "猪肉", "母猪", "玉米", "豆粕"],
-      type_active: "生猪"
+      types: [
+        { name: "生猪", value: 1 },
+        { name: "玉米", value: 3 },
+        { name: "豆粕", value: 4 }
+      ],
+      type_active: 1
     };
   },
   methods: {
@@ -65,33 +70,90 @@ export default {
         .dispatch("pigFenShi_", {
           region: this.city_active,
           // pig_type: "外三元",
-          type:this.type_active,
+          type: this.type_active,
           day_type: "年"
         })
         .then(res => {
           console.log(res);
-          this.days = res.data.days;
-          this.prices = res.data.prices;
+          // this.days = res.data[0].days;
+          // this.prices = res.data[0].prices;
           let myChart = this.$echarts.init(
             document.getElementById("query-main")
           );
+          let title = res.data[0].region + res.data[0].name + "价格";
+          let upColor = "#ec0000";
+          let upBorderColor = "#8A0000";
+          let downColor = "#00da3c";
+          let downBorderColor = "#008F28";
+          let legendData = [];
+          let seriesData = [];
+          for (let i = 0; i < res.data.length; i++) {
+            legendData.push(res.data[i].type);
+            seriesData.push({
+              name: res.data[i].type,
+              type: "line",
+              data: res.data[i].prices,
+              smooth: true,
+              lineStyle: {
+                normal: { opacity: 0.5 }
+              }
+            });
+          }
+          // 数据意义：开盘(open)，收盘(close)，最低(lowest)，最高(highest)
+
           let option = {
+            title: {
+              text: title,
+              left: 0
+            },
+            tooltip: {
+              trigger: "axis",
+              axisPointer: {
+                type: "cross"
+              }
+            },
+            legend: {
+              data: legendData
+            },
+            grid: {
+              left: "10%",
+              right: "10%",
+              bottom: "15%"
+            },
             xAxis: {
               type: "category",
-              data: this.days
+              data: res.data[0].days,
+              scale: true,
+              boundaryGap: false,
+              axisLine: { onZero: false },
+              splitLine: { show: false },
+              splitNumber: 20,
+              min: "dataMin",
+              max: "dataMax"
             },
             yAxis: {
-              type: "value"
-            },
-            series: [
-              {
-                data: this.prices,
-                type: "line",
-                smooth: true
+              scale: true,
+              splitArea: {
+                show: true
               }
-            ]
+            },
+            dataZoom: [
+              {
+                type: "inside",
+                start: 50,
+                end: 100
+              },
+              {
+                show: true,
+                type: "slider",
+                y: "90%",
+                start: 50,
+                end: 100
+              }
+            ],
+            series: seriesData
           };
-          myChart.setOption(option);
+          myChart.setOption(option, true);
         });
     },
     cityFn(e) {
@@ -104,13 +166,15 @@ export default {
     typeFn(e) {
       let target_ = e.target;
       if (target_.tagName === "SPAN") {
-        this.type_active = target_.innerText;
+        let val = target_.dataset.value;
+        console.log(val);
+        this.type_active = val;
         this.getFenShi();
       }
     }
   },
   mounted() {
-   // this.getFenShi();
+    this.getFenShi();
   }
 };
 </script>
@@ -158,7 +222,7 @@ export default {
         display: inline-block;
         width: 74px;
         cursor: pointer;
-        &.active{
+        &.active {
           color: #179df2;
         }
       }

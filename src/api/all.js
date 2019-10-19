@@ -22,7 +22,7 @@ export function pigPrice(params) {
 export function pigFenShi(params) {
     return axios.request({
         methods: 'get',
-        url: 'fenshi',
+        url: 'getfenshi',
         params
     })
 }

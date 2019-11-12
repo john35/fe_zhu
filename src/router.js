@@ -13,6 +13,11 @@ export default new Router({
             // component: Home
         },
         {
+            path: '/login',
+            name: 'login',
+            component: () => import('./views/Login.vue')
+        },
+        {
             path: '/about',
             name: 'about',
             // route level code-splitting
@@ -35,6 +40,7 @@ export default new Router({
             name: 'register',
             component: () => import('./views/Register.vue')
         },
+    
         {
             path: '/a',
             name: 'a',

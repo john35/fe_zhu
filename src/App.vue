@@ -26,7 +26,8 @@
         </div>
 
         <div class="sign">
-          <router-link to="/signIn">登录</router-link>
+          <!-- <router-link to="/signIn">登录</router-link> -->
+          <router-link to="/login">登录</router-link>
           <span>|</span>
           <router-link to="/register">注册</router-link>
         </div>

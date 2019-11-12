@@ -8,8 +8,8 @@ module.exports = {
     outputDir: "dist",
     filenameHashing: true,
     devServer: {                // 本地开发配置
-        host: '39.98.156.123',
-        // host: 'localhost',
+        // host: '39.98.156.123',
+        host: 'localhost',
         port: 8095,
         https: false,
         hotOnly: false,

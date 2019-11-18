@@ -13,7 +13,7 @@ export function getData() {
 export function pigPrice(params) {
     return axios.request({
         methods: 'get',
-        url: 'unit',
+        url: 'pig/unit',
         params,
     })
 }
@@ -22,7 +22,17 @@ export function pigPrice(params) {
 export function pigFenShi(params) {
     return axios.request({
         methods: 'get',
-        url: 'getfenshi',
+        url: 'pig/getfenshi',
         params
     })
+}
+
+export function signIn(params) {
+    console.log(params)
+    return axios.request({
+            methods: 'post',
+            url: "user/sign_in",
+            params
+        }
+    )
 }

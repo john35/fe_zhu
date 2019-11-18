@@ -13,8 +13,8 @@ module.exports = {
         port: 8095,
         https: false,
         hotOnly: false,
-        proxy: 'http://39.98.156.123:6789', // 设置代理
-        // proxy: 'http://127.0.0.1:6789',
+        // proxy: 'http://39.98.156.123:6789', // 设置代理
+        proxy: 'http://127.0.0.1:6789',
         before: app => {
         }
     },

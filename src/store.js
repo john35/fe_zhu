@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import {getData,pigPrice,pigFenShi,signIn} from './api/all'
+import {getData,pigPrice,pigFenShi,signIn,regist} from './api/all'
 
 Vue.use(Vuex)
 
@@ -28,6 +28,9 @@ export default new Vuex.Store({
     },
     async signIn_({commit},params){
       return await signIn(params);
+    },
+    async regist_({commit},params){
+      return await regist(params);
     }
   }
 })

@@ -8,18 +8,18 @@
             <div class="login_body">
                 <!-- <div class="">3513213</div> -->
                 <div class="loginpic"><img src="http://www.iplaystone.com/static/common/images/loginPic.png"></div>
-                <div class="stone_line">
+                <!-- <div class="stone_line">
                     <input id="userName" class="stone_input_icon input_error" type="text" v-model="userName">
                     <i class="stone_icon stone_user"></i>
                     <div class="stone_input_error" style="display: block;">用户名不能为空</div>
-                </div>
+                </div> -->
                 <div class="stone_line">
-                    <input id="email" class="stone_input_icon input_error" type="text" v-model="email">
+                    <input id="email" class="stone_input_icon input_error" type="text" placeholder="邮箱" v-model="email">
                     <i class="stone_icon stone_user"></i>
                     <div class="stone_input_error" style="display: block;">邮箱不能为空</div>
                 </div>
                 <div class="stone_line">
-                    <input id="pwd" class="stone_input_icon" type="text" v-model="pwd">
+                    <input id="pwd" class="stone_input_icon" type="text" placeholder="密码" v-model="pwd">
                     <i class="stone_icon stone_pwd"></i>
                     <div class="stone_input_error"></div>
                 </div>
@@ -41,23 +41,23 @@
     export default {
         data() {
             return {
-                userName: "",
+                // userName: "",
                 email: "",
                 pwd: "",
             };
         },
         methods: {
             login() {
-                console.log(this.userName);
+                // console.log(this.userName);
                 console.log(this.email);
                 console.log(this.pwd);
-                const name = this.userName
+                // const name = this.userName
                 const email = this.email
                 const pwd = this.pwd
 
                 this.$store
                     .dispatch("signIn_", {
-                        name:this.userName,
+                        // name:this.userName,
                         email:this.email,
                         pwd:this.pwd,
                     }).then(res => {

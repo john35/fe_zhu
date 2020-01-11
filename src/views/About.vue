@@ -84,6 +84,7 @@ export default {
         { name: "猪肉", value: 2 },
         { name: "母猪", value: 3 },
         { name: "小猪", value: 4 },
+         { name: "羊", value: 7 },
         { name: "玉米", value: 5 },
         { name: "豆粕", value: 6 }
       ],

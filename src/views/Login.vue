@@ -7,7 +7,7 @@
             </div>
             <div class="login_body">
                 <!-- <div class="">3513213</div> -->
-                <div class="loginpic"><img src="http://www.iplaystone.com/static/common/images/loginPic.png"></div>
+                <div class="loginpic"><img src="../assets/images/loginPic.png"></div>
                 <!-- <div class="stone_line">
                     <input id="userName" class="stone_input_icon input_error" type="text" v-model="userName">
                     <i class="stone_icon stone_user"></i>
@@ -19,7 +19,7 @@
                     <div class="stone_input_error" style="display: block;">邮箱不能为空</div>
                 </div>
                 <div class="stone_line">
-                    <input id="pwd" class="stone_input_icon" type="text" placeholder="密码" v-model="pwd">
+                    <input id="pwd" class="stone_input_icon" type="password" placeholder="密码" v-model="pwd">
                     <i class="stone_icon stone_pwd"></i>
                     <div class="stone_input_error"></div>
                 </div>
@@ -44,6 +44,7 @@
                 // userName: "",
                 email: "",
                 pwd: "",
+                isLogin:false,
             };
         },
         methods: {
@@ -61,7 +62,17 @@
                         email:this.email,
                         pwd:this.pwd,
                     }).then(res => {
-                        console.log(res)
+                        console.log(res);
+                        if (res.code==0){
+                            alert("登录成功");
+                            console.log(res.data);
+                            this.$store.commit('set_token',res.data["token"])
+                            this.$store.commit('set_user',res.data["user_name"]);
+                            console.log(this.$router);
+                            this.$router.push({
+                                name:"Query"
+                            })
+                        }
                     });
             }
         }

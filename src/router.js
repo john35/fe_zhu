@@ -9,8 +9,8 @@ export default new Router({
         {
             path: '/',
             name: 'home',
-            component: resolve => require([Home], resolve)
-            // component: Home
+            // component: resolve => require([Home], resolve)
+            component: Home
         },
         {
             path: '/login',

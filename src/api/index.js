@@ -8,7 +8,7 @@ class AjaxRequest{
     constructor(){
         //设置请求路径
         this.baseURL='/v1';
-        this.timeout=3500;//超时时间
+        //this.timeout=3500;//超时时间
         this.queue={};//存放每次的请求;为了避免调用多次请求混乱
     }
     merge(options){
@@ -17,6 +17,11 @@ class AjaxRequest{
     setInterceptor(instance,url){ 
         //请求拦截
         instance.interceptors.request.use(config=>{
+            console.log(store.state.token);
+            console.log("token")
+            if(store.state.token){
+                config.headers.Authorization = store.state.token;
+            }
             // config.headers.Authorization=getLocal('token');
 
             if(Object.keys(this.queue).length===0){

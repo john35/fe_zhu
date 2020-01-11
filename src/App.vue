@@ -25,18 +25,32 @@
           <img src="./assets/images/search.jpg" alt />
         </div>
 
-        <div class="sign">
+        <div class="sign" v-if="$store.state.isLogin">
+          <!-- <router-link to="/signIn">登录</router-link> -->
+          <router-link to="/login">{{$store.state.userName}}</router-link>
+        </div>
+        <div class="sign" v-else>
           <!-- <router-link to="/signIn">登录</router-link> -->
           <router-link to="/login">登录</router-link>
           <span>|</span>
           <router-link to="/register">注册</router-link>
-        </div>
+        </div> 
+        
       </div>
     </div>
     <router-view />
   </div>
 </template>
-
+// <script>
+// export default {
+//   data(){
+//     return {
+//       isLogin:false
+//     }
+//   },
+//   computed
+// }
+// </script>
 <style lang="less">
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;

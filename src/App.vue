@@ -14,7 +14,7 @@
 
           <router-link to="/about">行情咨询</router-link>
 
-          <router-link to="/a">每日猪评</router-link>
+          <router-link to="/comment">每日猪评</router-link>
 
           <router-link to="/b">生猪价格</router-link>
 

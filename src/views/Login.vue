@@ -7,7 +7,11 @@
             </div>
             <div class="login_body">
                 <!-- <div class="">3513213</div> -->
+<<<<<<< HEAD
                 <div class="loginpic"><img src="../assets/images/loginPic.png"></div>
+=======
+                <div class="loginpic"><img src="http://www.iplaystone.com/static/common/images/loginPic.png"></div>
+>>>>>>> 7f6be96e7d1bae37053f2ccf0b1ecd09767a7f07
                 <!-- <div class="stone_line">
                     <input id="userName" class="stone_input_icon input_error" type="text" v-model="userName">
                     <i class="stone_icon stone_user"></i>
@@ -19,7 +23,11 @@
                     <div class="stone_input_error" style="display: block;">邮箱不能为空</div>
                 </div>
                 <div class="stone_line">
+<<<<<<< HEAD
                     <input id="pwd" class="stone_input_icon" type="password" placeholder="密码" v-model="pwd">
+=======
+                    <input id="pwd" class="stone_input_icon" type="text" placeholder="密码" v-model="pwd">
+>>>>>>> 7f6be96e7d1bae37053f2ccf0b1ecd09767a7f07
                     <i class="stone_icon stone_pwd"></i>
                     <div class="stone_input_error"></div>
                 </div>

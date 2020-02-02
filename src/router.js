@@ -36,6 +36,16 @@ export default new Router({
             component: () => import('./views/Query.vue')
         },
         {
+            path: '/comment',
+            name: 'comment',
+            component: () => import('./views/Comment.vue')
+        },
+        {
+            path: '/postDetail',
+            name: 'postDetail',
+            component: () => import('./views/PostDetail.vue')
+        },
+        {
             path: '/register',
             name: 'register',
             component: () => import('./views/Register.vue')

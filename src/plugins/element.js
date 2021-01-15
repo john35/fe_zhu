@@ -1,7 +1,10 @@
 import Vue from 'vue'
-import { Table,TableColumn,Pagination ,Button} from 'element-ui'
-
+import {Button,Form,FormItem, Input,Message,Table,TableColumn,Pagination} from 'element-ui';
+Vue.use(Button)
+Vue.use(Form)
+Vue.use(FormItem)
+Vue.use(Input)
 Vue.use(Table)
 Vue.use(TableColumn)
 Vue.use(Pagination)
-Vue.use(Button)
+Vue.prototype.$message = Message

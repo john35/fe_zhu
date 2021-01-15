@@ -41,16 +41,6 @@
     <router-view />
   </div>
 </template>
-// <script>
-// export default {
-//   data(){
-//     return {
-//       isLogin:false
-//     }
-//   },
-//   computed
-// }
-// </script>
 <style lang="less">
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
